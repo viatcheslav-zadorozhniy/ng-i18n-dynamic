@@ -1,0 +1,27 @@
+{
+  "locale": "uk",
+  "translations": {
+    "menuItemHome": "Домашня",
+    "menuItemUsers": "Користувачі",
+    "homePageSEOTitle": "Домашня сторінка",
+    "usersPageSEOTitle": "Користувачі",
+    "homePageTitle": "Інтернаціоналізація",
+    "logoAlternativeText": "Логотип Angular",
+    "textWithoutAnElement": "Текст без елемента.",
+    "builtInPipesTitle": "Вбудовані пайпи",
+    "dateLabel": "Дата:",
+    "timeLabel": "Час:",
+    "currencyLabel": "Валюта:",
+    "customPipesTitle": "Користувацькі пайпи",
+    "homePageSEODescription": "Опис домашньої сторінки",
+    "welcomeMessage": "Раді бачити вас знову, {$userFirstName} {$userLastName}.",
+    "usersTitle": "Користувачі",
+    "usersPageSEODescription": "Опис сторінки користувачів",
+    "fullPageTitle": "{$pageTitle} | Додаток",
+    "feedbackFormTitle": "Форма зворотнього зв'язку",
+    "submitButton": "Надіслати",
+    "maleAddressing": "пане",
+    "femaleAddressing": "пані",
+    "feedbackFormLabel": "Залиште ваш відгук, {$genderAddressing} {$userFirstName}"
+  }
+}

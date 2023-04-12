@@ -1,0 +1,30 @@
+<h1>{{ translations['title'] }}</h1>
+
+<p>{{ translations['welcome'] }}</p>
+
+<div class="logo-container">
+  <img src="./assets/angular-logo.svg" [alt]="translations['logoAlt']" width="37" height="40"/>
+  {{ translations['textWithoutAnElement'] }}
+</div>
+
+<section>
+  <h2>{{ translations['builtInPipesTitle'] }}</h2>
+
+  <ul>
+    <li>{{ translations['dateLabel'] }} {{ today | date:'mediumDate' }}</li>
+    <li>{{ translations['timeLabel'] }} {{ today | date:'mediumTime' }}</li>
+    <li>{{ translations['currencyLabel'] }} {{ 12.34 | currency }}</li>
+  </ul>
+</section>
+
+<section>
+  <h2>{{ translations['customPipesTitle'] }}</h2>
+
+  <ul>
+    <li>{{ translations['dateLabel'] }} {{ today | intlDate:'mediumDate' }}</li>
+    <li>{{ translations['timeLabel'] }} {{ today | intlDate:'mediumTime' }}</li>
+    <li>{{ translations['currencyLabel'] }} {{ 12.34 | intlCurrency }}</li>
+  </ul>
+</section>
+
+<app-feedback-form [user]="user"></app-feedback-form>

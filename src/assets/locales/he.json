@@ -1,0 +1,27 @@
+{
+  "locale": "he",
+  "translations": {
+    "menuItemHome": "בית",
+    "menuItemUsers": "משתמשים",
+    "homePageSEOTitle": "דף הבית",
+    "usersPageSEOTitle": "משתמשים",
+    "homePageTitle": "בִּנאוּם",
+    "logoAlternativeText": "לוגו זוויתי",
+    "textWithoutAnElement": "טקסט ללא אלמנט.",
+    "builtInPipesTitle": "צינורות מובנים",
+    "dateLabel": "תַאֲרִיך:",
+    "timeLabel": "זְמַן:",
+    "currencyLabel": "מַטְבֵּעַ:",
+    "customPipesTitle": "צינורות בהתאמה אישית",
+    "homePageSEODescription": "תיאור מטא של דף הבית",
+    "welcomeMessage": "שמח לראות אותך שוב, {$userFirstName} {$userLastName}.",
+    "usersTitle": "משתמשים",
+    "usersPageSEODescription": "מטא תיאור של דף המשתמשים",
+    "fullPageTitle": "{$pageTitle} | יישום",
+    "feedbackFormTitle": "טופס משוב",
+    "submitButton": "שלח",
+    "maleAddressing": "אדון.",
+    "femaleAddressing": "גברת.",
+    "feedbackFormLabel": "השאירו משוב, {$genderAddressing} {$userFirstName}"
+  }
+}

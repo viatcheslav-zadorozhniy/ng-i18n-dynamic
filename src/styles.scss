@@ -1,0 +1,32 @@
+/*
+ * Use CSS logical properties and values rather than physical ones.
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties
+ * https://web.dev/learn/css/logical-properties/
+ */
+html,
+body {
+  block-size: 100%;
+}
+
+body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+ul {
+  padding-inline-start: 1rem;
+
+  li {
+    margin-block-end: .5rem;
+  }
+}
+
+label {
+  display: inline-block;
+  margin-block-end: .5rem;
+}
+
+textarea {
+  margin-block-end: 1rem;
+}

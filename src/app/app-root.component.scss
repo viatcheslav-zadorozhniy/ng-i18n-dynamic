@@ -1,0 +1,31 @@
+header {
+  background-color: #3f51b5;
+  box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
+  color: #fafafa;
+  display: flex;
+  justify-content: space-between;
+  padding-block: 8px;
+  padding-inline: 16px;
+}
+
+nav {
+  display: flex;
+
+  a {
+    align-items: center;
+    block-size: 36px;
+    border-radius: 4px;
+    color: #fafafa;
+    display: inline-flex;
+    padding-inline: .5rem;
+    text-decoration: none;
+
+    &.menu-item-active {
+      background-color: #0003;
+    }
+  }
+}
+
+main {
+  padding-inline: 1rem;
+}
