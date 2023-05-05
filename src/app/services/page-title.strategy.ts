@@ -11,7 +11,7 @@ import { isObservable, Observable } from 'rxjs';
 
 import { localeProvider } from '../locale';
 
-/*
+/**
  * A custom page title strategy can be used to append/prepend a page title with common wording.
  * It is also helpful to recalculate the current page title on locale change.
  */

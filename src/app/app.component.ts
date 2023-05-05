@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-/*
+/**
  * Application wrapper, required for route reload on locale change.
  * It must not contain localized text, because it would not be recalculated.
  */

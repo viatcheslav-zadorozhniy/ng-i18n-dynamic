@@ -1,6 +1,6 @@
 /// <reference types="@angular/localize" />
 
-/*
+/**
  * Import all supported locales (used by Angular built-in pipes for localization).
  * Alternatively, it can be replaced with the native `Intl` API.
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl

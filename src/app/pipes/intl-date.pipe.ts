@@ -6,7 +6,7 @@ import { isEmpty } from './is-empty';
 
 type IntlDateFormat = 'mediumDate' | 'mediumTime';
 
-/*
+/**
  * An alternative to the Angular built-in `DatePipe` based on the native `Intl.DateTimeFormat` API.
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
  * https://angular.io/api/common/DatePipe

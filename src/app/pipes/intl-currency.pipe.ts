@@ -4,7 +4,7 @@ import { localeStorage } from '../locale';
 
 import { isEmpty } from './is-empty';
 
-/*
+/**
  * An alternative to the Angular built-in `CurrencyPipe` based on the native `Intl.NumberFormat` API.
  * `DecimalPipe` and `PercentPipe` can be replaced with the `Intl.NumberFormat` API as well.
  *
