@@ -11,6 +11,14 @@
 npm-debug.log
 yarn-error.log
 
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
 # IDEs and editors
 .idea/
 .project
