@@ -2,7 +2,9 @@
   "name": "ng-i18n-dynamic",
   "private": true,
   "version": "0.0.1",
+  "packageManager": "yarn@4.0.2",
   "scripts": {
+    "initialize": "corepack enable && yarn set version self && yarn install --immutable",
     "ng": "ng",
     "build": "ng build",
     "start": "ng serve",

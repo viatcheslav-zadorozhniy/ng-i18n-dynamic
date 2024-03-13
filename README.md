@@ -8,6 +8,7 @@
 - [ICU expressions](#icu-expressions)
 - [Page title](#page-title)
 - [Locale change handling](#locale-change-handling)
+- [Installation](#installation)
 - [Demo](#demo)
 - [Additionally](#additionally)
 
@@ -107,10 +108,16 @@ Do not forget to update the [Document](https://developer.mozilla.org/en-US/docs/
 `getLocaleDirection()` function from the [@angular/common](https://angular.io/api/common) package can be used to retrieve the writing direction of the locale. [Intl.Locale.prototype.textInfo](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/textInfo) can be used as an alternative. But keep in mind that it is not [supported](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/textInfo#browser_compatibility) by all major engines at the time of writing.
 
 
+## Installation
+```bash
+npm run initialize
+```
+
+
 ## Demo
 This repository contains a complete example of the Angular application with dynamic locale change.
 
-Run `yarn install` to initialize the project after cloning the repo.
+First, initialize the project as described in the [installation](#installation) section.
 
 After that, run `yarn start` to see the app in action.
 
