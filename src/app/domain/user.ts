@@ -5,4 +5,5 @@ export interface User {
   lastName: string;
   gender: Gender;
   email?: string;
+  id?: number;
 }

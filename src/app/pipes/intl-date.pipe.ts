@@ -16,7 +16,7 @@ type IntlDateFormat = 'mediumDate' | 'mediumTime';
   name: 'intlDate',
 })
 export class IntlDatePipe implements PipeTransform {
-  private readonly formatOptions: Record<IntlDateFormat, Intl.DateTimeFormatOptions> = {
+  readonly #formatOptions: Record<IntlDateFormat, Intl.DateTimeFormatOptions> = {
     mediumDate: { // Equal to the "mediumDate" format in Angular.
       year: 'numeric',
       month: 'short',
@@ -45,7 +45,7 @@ export class IntlDatePipe implements PipeTransform {
     }
 
     const dateTimeFormatter = new Intl.DateTimeFormat(localeStorage.getLocale(), {
-      ...this.formatOptions[format],
+      ...this.#formatOptions[format],
       timeZone,
     });
 

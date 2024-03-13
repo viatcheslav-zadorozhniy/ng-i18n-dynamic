@@ -1,6 +1,5 @@
 import { CurrencyPipe, DatePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { User } from '../../domain';
 import { IntlCurrencyPipe, IntlDatePipe } from '../../pipes';
@@ -8,6 +7,7 @@ import { FeedbackFormComponent } from '../../shared';
 
 @Component({
   standalone: true,
+  selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,7 +23,7 @@ import { FeedbackFormComponent } from '../../shared';
     IntlDatePipe,
   ],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   readonly user: User = {
     firstName: 'John',
     lastName: 'Doe',
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
 
   readonly translations: Translations = {
     title: $localize`:@@homePageTitle:Internationalization`,
-    welcome: this.getWelcomeMessage(this.user),
+    welcome: this.#getWelcomeMessage(this.user),
     logoAlt: $localize`:@@logoAlternativeText:Angular logo`,
     textWithoutAnElement: $localize`:@@textWithoutAnElement:Text without an element.`,
     builtInPipesTitle: $localize`:@@builtInPipesTitle:Built-in pipes`,
@@ -44,16 +44,7 @@ export class HomeComponent implements OnInit {
     customPipesTitle: $localize`:@@customPipesTitle:Custom pipes`,
   };
 
-  private readonly meta = inject(Meta);
-
-  ngOnInit(): void {
-    this.meta.updateTag({
-      name: 'description',
-      content: $localize`:@@homePageSEODescription:Homepage meta description`,
-    });
-  }
-
-  private getWelcomeMessage(user: User): string {
+  #getWelcomeMessage(user: User): string {
     return $localize
       `:@@welcomeMessage:Glad to see you again, ${user.firstName}:userFirstName: ${user.lastName}:userLastName:.`
     ;

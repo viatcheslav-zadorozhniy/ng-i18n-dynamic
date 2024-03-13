@@ -10,7 +10,7 @@ class LocaleStorage {
     return this.#locale;
   }
 
-  setLocale(locale: Locale): void {
+  setLocale(locale: Locale) {
     this.#locale = locale;
     globalThis.localStorage.setItem(localeStorageKey, locale);
   }

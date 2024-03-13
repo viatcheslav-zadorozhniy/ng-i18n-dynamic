@@ -17,11 +17,11 @@ import { isEmpty } from './is-empty';
   name: 'intlCurrency',
 })
 export class IntlCurrencyPipe implements PipeTransform {
-  private readonly defaultCurrencyCode = inject(DEFAULT_CURRENCY_CODE) || 'USD';
+  readonly #defaultCurrencyCode = inject(DEFAULT_CURRENCY_CODE) || 'USD';
 
   transform(
     value: number | bigint | string,
-    currency: string = this.defaultCurrencyCode,
+    currency: string = this.#defaultCurrencyCode,
   ): string | null {
     if (isEmpty(value)) {
       return null;

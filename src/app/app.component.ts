@@ -8,7 +8,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   standalone: true,
   selector: 'i18n-app',
-  template: '<router-outlet></router-outlet>',
+  template: '<router-outlet />',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterOutlet],
 })

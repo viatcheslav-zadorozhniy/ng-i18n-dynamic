@@ -1,23 +1,20 @@
-import { AsyncPipe, NgFor } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import { User } from '../../domain';
 import { FeedbackFormComponent } from '../../shared';
 
 @Component({
   standalone: true,
+  selector: 'app-users',
   templateUrl: './users.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    AsyncPipe,
     FeedbackFormComponent,
-    NgFor,
   ],
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent {
+  readonly users = input.required<User[]>();
+
   readonly user: User = {
     firstName: 'Jane',
     lastName: 'Doe',
@@ -27,15 +24,4 @@ export class UsersComponent implements OnInit {
   readonly translations: Translations = {
     title: $localize`:@@usersTitle:Users`,
   };
-
-  readonly users$ = inject(ActivatedRoute).data.pipe(map(data => data['users']));
-
-  private readonly meta = inject(Meta);
-
-  ngOnInit(): void {
-    this.meta.updateTag({
-      name: 'description',
-      content: $localize`:@@usersPageSEODescription:Users page meta description`,
-    });
-  }
 }

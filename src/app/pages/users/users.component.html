@@ -1,7 +1,9 @@
 <h1>{{ translations['title'] }}</h1>
 
 <ul>
-  <li *ngFor="let user of users$ | async">{{ user.email }}</li>
+  @for (user of users(); track user.id) {
+    <li>{{ user.email }}</li>
+  }
 </ul>
 
-<app-feedback-form [user]="user"></app-feedback-form>
+<app-feedback-form [user]="user" />

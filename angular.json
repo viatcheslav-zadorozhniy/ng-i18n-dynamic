@@ -28,13 +28,13 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "i18nMissingTranslation": "error",
             "i18nDuplicateTranslation": "error",
             "outputPath": "dist/app",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -65,16 +65,13 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
             },
             "validate-i18n": {
               "localize": true,
-              "buildOptimizer": false,
               "optimization": false,
               "extractLicenses": false
             }
@@ -88,7 +85,7 @@
           },
           "configurations": {
             "development": {
-              "browserTarget": "app:build:development"
+              "buildTarget": "app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -96,10 +93,10 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "app:build",
             "format": "json",
             "outFile": "en.json",
-            "outputPath": "src/assets/locales"
+            "outputPath": "src/assets/locales",
+            "buildTarget": "app:build"
           }
         }
       }

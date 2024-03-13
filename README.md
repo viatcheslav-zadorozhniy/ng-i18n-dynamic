@@ -30,7 +30,7 @@ Therefore, if we want to achieve dynamic translation, we must use component code
 E.g.
 
 ```ts
-readonly translations = {
+#translations = {
   title: $localize`Page title`,
   imageAltText: $localize`Image alt text`
 };

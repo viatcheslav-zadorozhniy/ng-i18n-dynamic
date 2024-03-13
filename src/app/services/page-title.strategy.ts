@@ -7,7 +7,7 @@ import {
   RouterStateSnapshot,
   TitleStrategy,
 } from '@angular/router';
-import { isObservable, Observable } from 'rxjs';
+import { firstValueFrom, isObservable, Observable } from 'rxjs';
 
 import { localeProvider } from '../locale';
 
@@ -17,17 +17,17 @@ import { localeProvider } from '../locale';
  */
 @Injectable({ providedIn: 'root' })
 export class PageTitleStrategy extends TitleStrategy {
-  private readonly title = inject(Title);
+  #title = inject(Title);
 
   // https://angular.io/guide/router#setting-the-page-title
-  override updateTitle(state: RouterStateSnapshot): void {
+  override updateTitle(state: RouterStateSnapshot) {
     // Recalculate page title on locale change.
     if (localeProvider.state === 'loading') {
-      const deepestRouteWithTitle = this.getDeepestRouteWithTitle(state);
+      const deepestRouteWithTitle = this.#getDeepestRouteWithTitle(state);
       const routeTitle = deepestRouteWithTitle.routeConfig?.title as ResolveFn<string>;
 
       if (typeof routeTitle === 'function') {
-        this.unwrapAndSetTitle(routeTitle(deepestRouteWithTitle, state));
+        this.#unwrapAndSetTitle(routeTitle(deepestRouteWithTitle, state));
         return;
       }
     }
@@ -35,11 +35,11 @@ export class PageTitleStrategy extends TitleStrategy {
     const title = this.buildTitle(state);
 
     if (title !== undefined) {
-      this.setTitle(title);
+      this.#setTitle(title);
     }
   }
 
-  private getDeepestRouteWithTitle(state: RouterStateSnapshot): ActivatedRouteSnapshot {
+  #getDeepestRouteWithTitle(state: RouterStateSnapshot): ActivatedRouteSnapshot {
     let routeWithTitle = state.root;
     let nextRoute: ActivatedRouteSnapshot | undefined = routeWithTitle;
 
@@ -54,15 +54,12 @@ export class PageTitleStrategy extends TitleStrategy {
     return routeWithTitle;
   }
 
-  private unwrapAndSetTitle(routeTitle: Observable<string> | Promise<string> | string): void {
-    if (isObservable(routeTitle)) {
-      routeTitle.subscribe(title => this.setTitle(title));
-    } else {
-      Promise.resolve(routeTitle).then(title => this.setTitle(title));
-    }
+  async #unwrapAndSetTitle(routeTitle: Observable<string> | Promise<string> | string) {
+    const title = await (isObservable(routeTitle) ? firstValueFrom(routeTitle) : routeTitle);
+    this.#setTitle(title);
   }
 
-  private setTitle(title: string): void {
-    this.title.setTitle($localize`:@@fullPageTitle:${title}:pageTitle: | Application`);
+  #setTitle(title: string) {
+    this.#title.setTitle($localize`:@@fullPageTitle:${title}:pageTitle: | Application`);
   }
 }

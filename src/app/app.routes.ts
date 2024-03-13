@@ -1,11 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { Routes } from '@angular/router';
 
 import { AppRootComponent } from './app-root.component';
-import { User } from './domain';
+import { RouteMetadataKey, RouteWithMetadata, User } from './domain';
 
-export const appRoutes: Routes = [
+export const appRoutes: RouteWithMetadata[] = [
   {
     path: '',
     component: AppRootComponent,
@@ -14,7 +13,15 @@ export const appRoutes: Routes = [
         path: '',
         pathMatch: 'full',
         loadComponent: () => import('./pages/home').then(mod => mod.HomeComponent),
-        title: () => $localize`:@@homePageSEOTitle:Homepage`, // Use `ResolveFn` instead of a string to recalculate on locale change.
+        title: () => $localize`:@@SEO.homePage.title:Homepage`,
+        [RouteMetadataKey]: () => ({
+          tags: [
+            {
+              name: 'description',
+              content: $localize`:@@SEO.homePage.description:Homepage meta description`,
+            }
+          ]
+        }),
       },
       {
         path: 'users',
@@ -22,7 +29,15 @@ export const appRoutes: Routes = [
           users: () => inject(HttpClient).get<User[]>('https://jsonplaceholder.typicode.com/users'),
         },
         loadComponent: () => import('./pages/users').then(mod => mod.UsersComponent),
-        title: () => $localize`:@@usersPageSEOTitle:Users`, // Use `ResolveFn` instead of a string to recalculate on locale change.
+        title: () => $localize`:@@SEO.usersPage.title:Users`,
+        [RouteMetadataKey]: () => ({
+          tags: [
+            {
+              name: 'description',
+              content: $localize`:@@SEO.usersPage.description:Users page meta description`,
+            }
+          ]
+        }),
       },
     ],
   },
